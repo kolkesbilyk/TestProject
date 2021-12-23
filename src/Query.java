@@ -12,6 +12,7 @@ public class Query {
     private final ResponseType responseType;
     private final LocalDate dateFrom;
     private final LocalDate dateTo;
+    private final int id;
 
     public Query(String serviceId,
                  String variationId,
@@ -20,7 +21,8 @@ public class Query {
                  String subCategoryId,
                  ResponseType responseType,
                  LocalDate dateFrom,
-                 LocalDate dateTo) {
+                 LocalDate dateTo,
+                 int id) {
         this.serviceId = serviceId;
         this.variationId = variationId;
         this.questionTypeId = questionTypeId;
@@ -31,6 +33,7 @@ public class Query {
         if(dateTo == null){
             this.dateTo = dateFrom;
         }else this.dateTo = dateTo;
+        this.id = id;
     }
 
     public Type getType() {
@@ -69,6 +72,10 @@ public class Query {
         return dateTo;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "Query{" +
@@ -81,6 +88,7 @@ public class Query {
                 ", responseType=" + responseType +
                 ", dateFrom=" + dateFrom +
                 ", dateTo=" + dateTo +
+                ", id=" + id +
                 '}';
     }
 }

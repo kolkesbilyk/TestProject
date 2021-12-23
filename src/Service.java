@@ -10,8 +10,8 @@ public class Service {
     private static final List<Query> queries = new ArrayList<>();
 
     public void sortingLines(List<String> list){
-        for (String s: list) {
-            String[] array = s.split(" ");
+        for (int i = 0; i < list.size(); i++) {
+            String[] array = list.get(i).split(" ");
             if (array[0].equals("C")) {
                 String[] serviceArray = getArray(array[1], "\\.");
                 String[] questionArray = getArray(array[2], "\\.");
@@ -22,7 +22,8 @@ public class Service {
                         questionArray[2],
                         responseType(array[3]),
                         parserDate(array[4]),
-                        Integer.parseInt(array[5]));
+                        Integer.parseInt(array[5]),
+                        i);
                 waitings.add(waiting);
             } else if (array[0].equals("D")) {
                 String[] serviceArray = getArray(array[1], "\\.");
@@ -35,7 +36,8 @@ public class Service {
                         questionArray[2],
                         responseType(array[3]),
                         parserDate(dateArray[0]),
-                        parserDate(dateArray[1]));
+                        parserDate(dateArray[1]),
+                        i);
                 queries.add(query);
             }
         }

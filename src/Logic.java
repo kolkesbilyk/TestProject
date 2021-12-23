@@ -42,11 +42,16 @@ public class Logic {
         else return waiting.getDate().equals(query.getDateFrom());
     }
 
+    private boolean compareById(Query query, Waiting waiting){
+        return query.getId() > waiting.getId();
+    }
+
     private boolean compareByAllField(Query query, Waiting waiting){
         return compareByService(query, waiting) &&
                 compareByQuestion(query, waiting) &&
                 compareByType(query, waiting) &&
-                compareByDate(query, waiting);
+                compareByDate(query, waiting) &&
+                compareById(query, waiting);
     }
 
     private String getResult(List<Waiting> list){

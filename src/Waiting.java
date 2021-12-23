@@ -12,6 +12,7 @@ public class Waiting {
     private final ResponseType responseType;
     private final LocalDate date;
     private final int time;
+    private final int id;
 
     public Waiting(String serviceId,
                    String variationId,
@@ -20,7 +21,8 @@ public class Waiting {
                    String subCategoryId,
                    ResponseType responseType,
                    LocalDate date,
-                   int time) {
+                   int time,
+                   int id) {
         this.serviceId = serviceId;
         this.variationId = variationId;
         this.questionTypeId = questionTypeId;
@@ -29,6 +31,7 @@ public class Waiting {
         this.responseType = responseType;
         this.date = date;
         this.time = time;
+        this.id = id;
     }
 
     public Type getTYPE() {
@@ -67,6 +70,10 @@ public class Waiting {
         return time;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "Waiting{" +
@@ -79,6 +86,7 @@ public class Waiting {
                 ", responseType=" + responseType +
                 ", date=" + date +
                 ", time=" + time +
+                ", id=" + id +
                 '}';
     }
 }
